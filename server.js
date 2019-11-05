@@ -21,9 +21,8 @@ server.post('/', (req, res) => {
     .insert(req.body, 'id')
     .into('accounts')
     .then(record => res.status(200).json(record))
-    .catch(err => console.log().json({ error: 'Failed to add record to database' }));
+    .catch(err => res.status(500).json({ error: 'Failed to add record to database' }));
 })
-
 
 // update record to db
 server.put('/:id', (req, res) => {
@@ -35,7 +34,15 @@ server.put('/:id', (req, res) => {
     .then(account => {
       res.status(200).json(account);
     })
-    .catch(err => console.console.log().json({ error: 'Failed to update account record' }));
+    .catch(err => res.status(500).json({ error: 'Failed to update account record' }));
+});
+
+server.delete('/:id', (req, res) => {
+  db('accounts')
+    .where({ id: req.params.id })
+    .del()
+    .then(count => res.status(200).json(count))
+    .catch(err => res.status(500).json({ error: 'Failed to delete recod' }));
 });
 
 module.exports = server;
