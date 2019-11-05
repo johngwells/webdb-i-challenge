@@ -15,7 +15,9 @@ SELECT * FROM [Orders] order by OrderDate desc limit 10;
 -- Find all customers that live in London, Madrid, or Brazil
 SELECT * FROM [Customers] where City='London';
 SELECT * FROM [Customers] where City='Madrid';
-SELECT * FROM [Customers] where City='Brazil';
+SELECT * FROM [Customers] where Country='Brazil';
+
+SELECT * FROM Customers WHERE City IN ("London", "Madrid") OR Country = "Brazil"`
 
 -- Add a customer record for "The Shire", the contact name is "Bilbo Baggins" the address is -"1 Hobbit-Hole" in "Bag End", postal code "111" and the country is "Middle Earth"
 INSERT INTO Customers (CustomerName, ContactName, Address, City, PostalCode, Country)
