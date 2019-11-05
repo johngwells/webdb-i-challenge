@@ -17,9 +17,9 @@ server.get('/', (req, res) => {
 
 // Add new record to db
 server.post('/', (req, res) => {
-  knex
+  db
     .insert(req.body, 'id')
-    into('accounts')
+    .into('accounts')
     .then(record => res.status(200).json(record))
     .catch(err => console.log().json({ error: 'Failed to add record to database' }));
 })
