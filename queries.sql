@@ -17,7 +17,7 @@ SELECT * FROM [Customers] where City='London';
 SELECT * FROM [Customers] where City='Madrid';
 SELECT * FROM [Customers] where Country='Brazil';
 
-SELECT * FROM Customers WHERE City IN ("London", "Madrid") OR Country = "Brazil"`
+SELECT * FROM Customers WHERE City IN ("London", "Madrid") OR Country = "Brazil"
 
 -- Add a customer record for "The Shire", the contact name is "Bilbo Baggins" the address is -"1 Hobbit-Hole" in "Bag End", postal code "111" and the country is "Middle Earth" --
 
